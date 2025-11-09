@@ -15,17 +15,17 @@ This project aims to implement a numerical solution for the heat diffusion equat
 
 ## Mathematical Model
 
-[cite_start]This project implements a numerical solution for the 2D stationary heat diffusion equation with variable conductivity[cite: 4, 6].
+This project implements a numerical solution for the 2D stationary heat diffusion equation with variable conductivity.
 
 The script solves the following partial differential equation (PDE):
-[cite_start]$$-\nabla\cdot(k(x,y)\nabla u(x,y))=f(x,y)$$ [cite: 8]
+$$-\nabla\cdot(k(x,y)\nabla u(x,y))=f(x,y)$$
 
-* [cite_start]**Domain:** A rectangle $\Omega = [0, a] \times [0, b]$, with $a=5$ and $b=2$[cite: 12].
-* [cite_start]**Variable Conductivity:** $k(x,y)=1+0.5\cdot \sin(2\pi x)\cdot e^{-y}$[cite: 13].
-* [cite_start]**Boundary Conditions:** Mixed conditions are applied[cite: 7]:
-    * [cite_start]**Dirichlet:** $u(x,y) = g_D(x,y)$ on $\Gamma_D$ (top and bottom boundaries)[cite: 9, 10].
-    * [cite_start]**Neumann:** $k(x,y)\frac{\partial u}{\partial n} = g_N(x,y)$ on $\Gamma_N$ (left and right boundaries)[cite: 9, 11].
-* [cite_start]**Analytical Solution:** To verify the accuracy of the numerical method, a known analytical solution is used: $u(x,y)=\sin(\frac{2\pi x}{3})\cos(\frac{\pi y}{2})$[cite: 15]. [cite_start]The source term $f(x,y)$ and the boundary conditions are derived from this exact solution[cite: 16].
+* **Domain:** A rectangle $\Omega = [0, a] \times [0, b]$, with $a=5$ and $b=2$.
+* **Variable Conductivity:** $k(x,y)=1+0.5\cdot \sin(2\pi x)\cdot e^{-y}$.
+* **Boundary Conditions:** Mixed conditions are applied:
+    * **Dirichlet:** $u(x,y) = g_D(x,y)$ on $\Gamma_D$ (top and bottom boundaries).
+    * **Neumann:** $k(x,y)\frac{\partial u}{\partial n} = g_N(x,y)$ on $\Gamma_N$ (left and right boundaries).
+* **Analytical Solution:** To verify the accuracy of the numerical method, a known analytical solution is used: $u(x,y)=\sin(\frac{2\pi x}{3})\cos(\frac{\pi y}{2})$. The source term $f(x,y)$ and the boundary conditions are derived from this exact solution.
 
 ---
 
