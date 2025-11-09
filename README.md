@@ -33,20 +33,20 @@ $$-\nabla\cdot(k(x,y)\nabla u(x,y))=f(x,y)$$
 
 The `main.py` script is a self-contained implementation of the entire numerical workflow, from discretization to analysis.
 
-* [cite_start]**Finite Difference Method (FDM):** The PDE is discretized using a **second-order finite difference** scheme on a uniform grid[cite: 63, 178].
-* [cite_start]**Sparse Matrix Assembly:** The resulting linear system ($A \cdot U = b$) [cite: 79] is constructed as a **sparse matrix**. [cite_start]The matrix is built in **LIL (List of Lists)** format for efficient element insertion [cite: 82] [cite_start]and then converted to **CSR (Compressed Sparse Row)** format, which is optimal for numerical operations[cite: 83]. This is visible in the code (`lil_matrix`, `csr_matrix`).
+* **Finite Difference Method (FDM):** The PDE is discretized using a **second-order finite difference** scheme on a uniform grid.
+* **Sparse Matrix Assembly:** The resulting linear system ($A \cdot U = b$) is constructed as a **sparse matrix**. The matrix is built in **LIL (List of Lists)** format for efficient element insertion and then converted to **CSR (Compressed Sparse Row)** format, which is optimal for numerical operations. This is visible in the code (`lil_matrix`, `csr_matrix`).
 * **System Solvers:**
-    * [cite_start]**`scipy.sparse.linalg.spsolve`**: The main, large linear system is solved using SciPy's high-performance sparse solver, which internally uses an efficient LU factorization[cite: 90, 91].
-    * [cite_start]**Manual QR Solver (`rezolva_sistem_QR`)**: A custom QR decomposition solver, implemented manually using the Gram-Schmidt process [cite: 87][cite_start], is used to solve the smaller systems required for building the 1D quadratic spline interpolants[cite: 84].
+    * **`scipy.sparse.linalg.spsolve`**: The main, large linear system is solved using SciPy's high-performance sparse solver, which internally uses an efficient LU factorization.
+    * **Manual QR Solver (`rezolva_sistem_QR`)**: A custom QR decomposition solver, implemented manually using the Gram-Schmidt process , is used to solve the smaller systems required for building the 1D quadratic spline interpolants.
 * **Custom 2D Quadratic Spline:**
-    * [cite_start]Since the FDM solution is only available at discrete grid points[cite: 94], a **continuous approximation** is built.
+    * Since the FDM solution is only available at discrete grid points, a **continuous approximation** is built.
     * A **1D quadratic spline** (`spline_patratica_1d`) is implemented manually.
-    * [cite_start]A **2D spline interpolant** (`spline_bi2d`) is constructed by first applying the 1D spline to each row (x-direction) [cite: 97][cite_start], and then applying it again to each column (y-direction) of the intermediate results[cite: 100].
+    * A **2D spline interpolant** (`spline_bi2d`) is constructed by first applying the 1D spline to each row (x-direction) , and then applying it again to each column (y-direction) of the intermediate results.
 * **Convergence Analysis:**
     * The script automatically runs the simulation for a range of grid sizes (e.g., N = 4, 8, 16, 32, 64, 128), as defined in the `n_vals` list.
-    * [cite_start]It calculates the **maximum absolute error** between the interpolated numerical solution and the exact analytical solution[cite: 109, 110].
-    * [cite_start]It generates 3D plots comparing the Numerical Solution, Analytical Solution, and Absolute Error for each `N` [cite: 107, 121-123].
-    * [cite_start]Finally, it plots the maximum error vs. the step size ($h$) on a **log-log graph** to visually and numerically determine the method's convergence rate[cite: 111, 116].
+    * It calculates the **maximum absolute error** between the interpolated numerical solution and the exact analytical solution.
+    * It generates 3D plots comparing the Numerical Solution, Analytical Solution, and Absolute Error for each `N` .
+    * Finally, it plots the maximum error vs. the step size ($h$) on a **log-log graph** to visually and numerically determine the method's convergence rate.
 
 ---
 
