@@ -1,13 +1,13 @@
-## Proiect – Rezolvarea numerică a ecuației de difuzie a căldurii în Python
+## Project – Numerical Solution of Heat Diffusion Equation in Python
 
-Acest proiect are ca scop implementarea unei soluții numerice pentru ecuația de difuzie a căldurii folosind Python.
+This project aims to implement a numerical solution for the heat diffusion equation using Python.
 
-### Conținut
+### Content
 
-- **`main.py`** – Conține implementarea completă a problemei discutate în documentul `project_report.pdf`.
-- **`base.py`** – Reprezintă un cod de bază, utilizat ca punct de plecare pentru dezvoltarea unei versiuni mai complexe a soluției.
+- **`main.py`** – Contains the full implementation of the issue discussed in the document `project_report.pdf`.
+- **`base.py`** – It is a base code, used as a starting point for developing a more complex version of the solution.
 
 ---
 
-> Pentru mai multe detalii teoretice și explicații: `project_report.pdf`.
+> For more theoretical details and explanations: `project_report.pdf`.
 
